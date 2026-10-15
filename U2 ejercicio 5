@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class Elevador {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int actual = 0, deseado = 0;
+
+        while (actual <= 0 || deseado <= 0 || actual == deseado) {
+            System.out.print("Piso actual: ");
+            actual = sc.nextInt();
+            System.out.print("Piso deseado: ");
+            deseado = sc.nextInt();
+            if (actual <= 0 || deseado <= 0 || actual == deseado)
+                System.out.println("Error: pisos > 0 y diferentes.");
+        }
+
+        System.out.print("Pisos: ");
+        if (deseado > actual) {
+            int i = actual + 1;
+            while (i <= deseado) {
+                System.out.print(i);
+                if (i < deseado) System.out.print(",");
+                i++;
+            }
+        } else {
+            int i = actual - 1;
+            while (i >= deseado) {
+                System.out.print(i);
+                if (i > deseado) System.out.print(",");
+                i--;
+            }
+        }
+        System.out.println();
+        sc.close();
+    }
+}
